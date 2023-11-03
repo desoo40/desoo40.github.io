@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import TechLogo from './TechLogo'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,12 +10,8 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <TechLogo link="https://vitejs.dev" path={viteLogo} altName="Vite logo" />
+        <TechLogo link="https://react.dev" path={reactLogo} altName="React logo" />
       </div>
       <h1>Это я сделал</h1>
       <div className="card">
