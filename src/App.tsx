@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -7,14 +9,17 @@ function App() {
   return (
     <>
       <div>
-        <a onClick={() => setCount((count) => count + 1)}>
-          <img src="https://stats.mihf.ru/contents/players/1119-p-5824ae0df1530.jpg" className="logo react" alt="React logo" />
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>БЕЛЬСКИЙ ПЕТУХ!</h1>
+      <h1>Это я сделал</h1>
       <div className="card">
-        <button>
-          На петуха нажали {count} раз(а)
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
