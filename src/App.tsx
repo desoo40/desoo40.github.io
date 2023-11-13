@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route, NavLink, HashRouter } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import RacesPage from './Pages/RacesPage';
 import SamplePage from './Pages/SamplePage'
 import NotFoundPage from './Pages/NotFoundPage'
@@ -7,7 +7,7 @@ import dsLogo from './assets/dsLogo.png'
 
 function App() {
   return(
-    <HashRouter>
+    <Router>
       <header className="sticky">
           <span className="logo">
             <img src={dsLogo} alt="logo" width="100" height="100" />
@@ -27,7 +27,7 @@ function App() {
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </div>
-    </HashRouter>
+    </Router>
    )
 }
 
