@@ -1,42 +1,48 @@
 [
     {
-        "name": "Спорт во благо (осень 2023)",
+        "name": "Спорт во благо (Осень)",
         "distance": 10,
         "time": "52:12",
         "date": "2023-10-14"
     },
     {
-        "name": "Moscow Marathon 2023",
+        "name": "Moscow Marathon",
         "distance": 42.2,
         "time": "4:06:12",
         "date": "2023-09-17"
     },
     {
-        "name": "Luzhniki Halfmarathon 2023",
+        "name": "Luzhniki Halfmarathon",
         "distance": 21.1,
         "time": "52:12",
         "date": "2023-08-22"
     },
     {
-        "name": "SPB Halfmarathon 2023",
+        "name": "Banana Run",
+        "distance": 5,
+        "time": "21:10",
+        "date": "2023-08-21"
+    },
+    {
+        "name": "SPB Halfmarathon",
         "distance": 21.1,
         "time": "1:47:12",
         "date": "2023-08-06"
     },
     {
-        "name": "Night run 2023",
+        "name": "Night run",
         "distance": 10,
         "time": "47:12",
         "date": "2023-07-08"
     },
     {
-        "name": "Moscow Marathon 2020",
+        "name": "Moscow Marathon",
         "distance": 10,
         "time": "47:12",
         "date": "2020-09-26"
     },
     {
-        "name": "SPB Halfmarathon 2020",
+        "name": "SPB Halfmarathon",
         "distance": 21.1,
         "time": "1:55:12",
         "date": "2020-08-11"

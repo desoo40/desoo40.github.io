@@ -40,7 +40,7 @@ function RacesPage() {
   let yearRaces = SplitToYears(RacesDataJson);
 
   return <>
-    <h1>Official races</h1>
+    <header>Official races</header>
     <div>
         {
           yearRaces.map((elem) => (
