@@ -5,7 +5,7 @@ export type RaceCardProps = {
   distance: number,
   time: string,
   date: string,
-  url: string
+  url?: string
 }
 
 function RaceCard(raceProps: RaceCardProps) {
