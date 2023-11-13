@@ -4,12 +4,17 @@ export type RaceCardProps = {
   name: string,
   distance: number,
   time: string,
-  date: string
+  date: string,
+  url: string
 }
 
 function RaceCard(raceProps: RaceCardProps) {
   return (
-    <div className="raceCard">
+    <div className="raceCard" style={{ 
+  backgroundImage: `url(${raceProps.url})`,
+  backgroundRepeat: 'no-repeat',
+  
+}}>
       <div className="race-card-image"></div>
       <div className="race-card-info">
         <h2>{raceProps.name}</h2>
