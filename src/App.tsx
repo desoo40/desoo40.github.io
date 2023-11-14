@@ -1,9 +1,11 @@
+import "@fontsource/montserrat";
 import './App.css'
 import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import RacesPage from './Pages/RacesPage';
 import SamplePage from './Pages/SamplePage'
 import NotFoundPage from './Pages/NotFoundPage'
 import dsLogo from './assets/dsLogo.png'
+import YandexPracticumPage from "./Pages/YandexPraticumPage/YandexPracticumPage";
 
 function App() {
   return(
@@ -13,17 +15,20 @@ function App() {
             <img src={dsLogo} alt="logo" width="100" height="100" />
           </span>
           <NavLink to="/"  className="menuItem">
-            <span className="icon-home"></span>
             Home
           </NavLink>
           <NavLink to="/races" className="menuItem">
-            Runs
+            Races
+          </NavLink>
+           <NavLink to="/practicum" className="menuItem">
+            Yandex
           </NavLink>
         </header>
       <div className="container">
         <Routes>
           <Route path="/" element={<SamplePage />} />
           <Route path="/races" element={<RacesPage />} />
+          <Route path="/practicum" element={<YandexPracticumPage />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </div>

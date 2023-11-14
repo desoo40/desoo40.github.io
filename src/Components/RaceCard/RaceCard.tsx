@@ -10,11 +10,7 @@ export type RaceCardProps = {
 
 function RaceCard(raceProps: RaceCardProps) {
   return (
-    <div className="raceCard" style={{ 
-  backgroundImage: `url(${raceProps.url})`,
-  backgroundRepeat: 'no-repeat',
-  
-}}>
+    <div className="raceCard">
       <div className="race-card-image"></div>
       <div className="race-card-info">
         <h2>{raceProps.name}</h2>

@@ -1,3 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
 #root {
     width: 100vw;
+    font-family: 'Open Sans', 'Arial', sans-serif;;
+}
+
+.sticky {
+    display: flex;
+}
+
+.sticky a.active {
+    color: red;
+    border: 2px solid violet;
+    text-shadow: 10px 10px 10px salmon;
+}
+
+.menuItem {
+    padding: 10px;
+    margin: auto 0;
+    text-decoration: none;
 }

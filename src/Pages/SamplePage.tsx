@@ -14,7 +14,7 @@ function SamplePage() {
         <TechLogo link="https://react.dev" path={reactLogo} altName="React logo" />
       </div>
       <h1>Это я сделал</h1>
-      <div className="card">
+      <div className="cardSample">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
