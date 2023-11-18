@@ -1,9 +1,13 @@
+.rosterPageLayout {
+  display: flex;
+  height: 1000px;
+}
+
 .rosterLayout {
   display: flex;
   width: 1000px;
   height: 1000px;
-  margin: auto;
-  background-image: url("../../assets/roster.png");
+  background-image: url("../../assets/Legion/roster.png");
   text-align: center;
 }
 

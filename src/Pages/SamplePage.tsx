@@ -13,7 +13,7 @@ function SamplePage() {
         <TechLogo link="https://vitejs.dev" path={viteLogo} altName="Vite logo" />
         <TechLogo link="https://react.dev" path={reactLogo} altName="React logo" />
       </div>
-      <h1>Это я сделал</h1>
+      <h1 className='pageTitle'>Это я сделал</h1>
       <div className="cardSample">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

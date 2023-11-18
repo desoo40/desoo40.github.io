@@ -1,0 +1,53 @@
+.circle {
+    height: 108px;
+    width: 108px;
+    border: 4px solid #c1c1c1;
+    border-radius: 50%;
+    background-image: url("/src/assets/Legion/legionLogo.png");
+    background-size: cover;
+    box-shadow: inset 0px 3px 7px rgb(0, 0, 0, 0.4), 0px 3px 7px rgb(0, 0, 0, 0.4);
+    margin-bottom: 4px;
+}
+
+.player {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    /* border: 1px solid saddlebrown ; */
+    text-align: center;
+}
+
+.player.player__inpicker{
+    flex-direction: column;
+}
+
+.player__flex__hidden {
+    display: none;
+}
+
+.text {
+    display: block;
+    font-family: 'CC Ultimate Italic';
+}
+
+.text__number {
+    text-align: end;
+    margin-right: -10px;
+}
+
+.text__name {
+    color: #000;
+}
+
+.text__surname {
+    margin-top: -2px;
+    color: #980214;
+}
+
+.text__bage {
+    font-size: 20px;
+    text-align: start;
+    margin-top: 90px;
+    margin-left: -10px;
+    color: #c80b1c;
+}

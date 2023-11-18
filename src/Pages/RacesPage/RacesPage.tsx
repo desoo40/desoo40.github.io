@@ -1,7 +1,7 @@
-import { RaceCardProps } from "../Components/RaceCard/RaceCard";
-import { RacesYearProps } from "../Components/RaceYear/RacesYear";
-import RacesYear from "../Components/RaceYear/RacesYear";
-import RacesDataJson  from "../data/races.json";
+import { RaceCardProps } from "./RaceCard/RaceCard";
+import { RacesYearProps } from "./RaceYear/RacesYear";
+import RacesYear from "./RaceYear/RacesYear";
+import RacesDataJson  from "../../data/races.json";
 
 function SplitToYears(races: RaceCardProps[]): RacesYearProps[]
 {
@@ -41,7 +41,7 @@ function RacesPage() {
 
   return <>
     <header>
-      <h1>
+      <h1 className="pageTitle">
         Official races
       </h1>
     </header>

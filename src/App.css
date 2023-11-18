@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'CC Ultimate Italic';
+    src: url("/src/assets/Fonts/cc-ultimatum-heavy-italic.otf");
+}
+
 * {
     box-sizing: border-box;
 }
@@ -19,6 +24,10 @@ body{
     color: red;
     border: 2px solid violet;
     text-shadow: 10px 10px 10px salmon;
+}
+
+.pageTitle {
+    font-weight: 900;
 }
 
 .menuItem {
