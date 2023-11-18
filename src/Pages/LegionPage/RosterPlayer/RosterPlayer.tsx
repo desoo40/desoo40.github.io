@@ -7,11 +7,11 @@ export type RosterPlayerProps = {
 
 function RosterPlayer(props: RosterPlayerProps) {
   
-  let pathToImage = "./src/assets/Legion/playersPhoto/" + props.name + ".PNG";
-  let stubImage = "./src/assets/Legion/legionLogo.png";
+  let pathToImage = "src/assets/Legion/playersPhoto/" + props.name + ".PNG";
+  let stubImage = "src/assets/Legion/legionLogo.png";
 
   let bckImg = { 
-    backgroundImage: `url("${pathToImage}"), url("${stubImage}")`
+    backgroundImage: `url('${pathToImage}'), url('${stubImage}')`
   }
   
   return ( <>
