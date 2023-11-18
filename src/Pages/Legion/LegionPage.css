@@ -1,0 +1,15 @@
+.rosterLayout {
+  display: flex;
+  width: 1000px;
+  height: 1000px;
+  margin: auto;
+  background-image: url("../../assets/roster.png");
+  text-align: center;
+}
+
+.firstRow {
+  margin-top: 22.5%;
+  border: 1px solid black;
+  height: 16%;
+  width: 100%;
+}
