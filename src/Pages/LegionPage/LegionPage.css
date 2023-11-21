@@ -4,16 +4,29 @@
 }
 
 .rosterLayout {
-  display: flex;
   width: 1000px;
   height: 1000px;
   background-image: url("../../assets/Legion/roster.png");
   text-align: center;
 }
 
+.rostedGrid {
+  display: grid;
+  gap: 5px;
+  row-gap: 40px;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 25px;
+  margin-left: 200px;
+}
+
+.rostedGrid div:first-child {
+  /* border: 1px solid saddlebrown; */
+  grid-column: 4 / 5;
+}
+
 .firstRow {
-  margin-top: 22.5%;
-  border: 1px solid black;
-  height: 16%;
-  width: 100%;
+  border: 3px solid rgb(198, 10, 10);
+
+  width: 100px;
+  height: 100px;
 }

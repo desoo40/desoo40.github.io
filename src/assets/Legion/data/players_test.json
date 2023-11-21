@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "name": "Воронов Валерий Валерьевич",
+        "position": "G",
+        "number": 20,
+        "heigth": 176,
+        "weight": 57,
+        "hand": "L",
+        "birth": "30.11.1998",
+        "university": "МГЮА"
+    },
+    {
+        "id": 2,
+        "name": "Емельянович Тимофей Алексеевич",
+        "position": "G",
+        "number": 31,
+        "heigth": 188,
+        "weight": 76,
+        "hand": "L",
+        "birth": "22.08.2003",
+        "university": "УМЦ"
+    },
+    {
+        "id": 3,
+        "name": "Литвиненко Остап Сергеевич​",
+        "position": "G",
+        "number": 1,
+        "heigth": 185,
+        "weight": 75,
+        "hand": "L",
+        "birth": "14.09.2002",
+        "university": "МГЮА"
+    },
+    {
+        "id": 4,
+        "name": "Самсонов Федор Андреевич",
+        "position": "G",
+        "number": 77,
+        "heigth": 181,
+        "weight": 75,
+        "hand": "R",
+        "birth": "21.05.2005",
+        "university": "МГЮА"
+    }
+]

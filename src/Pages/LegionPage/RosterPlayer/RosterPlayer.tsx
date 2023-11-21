@@ -2,11 +2,10 @@ import "./RosterPlayer.css"
 
 export type RosterPlayerProps = {
   name: string,
-  number: number,
+  number: number
 }
 
-function RosterPlayer(props: RosterPlayerProps) {
-  
+function RosterPlayer(props: RosterPlayerProps, inPicker: boolean) {
   let pathToImage = "src/assets/Legion/playersPhoto/" + props.name + ".PNG";
   let stubImage = "src/assets/Legion/legionLogo.png";
 
@@ -15,7 +14,7 @@ function RosterPlayer(props: RosterPlayerProps) {
   }
   
   return ( <>
-    <div className="player">
+    <div draggable={true} className="player">
       <div className="player__flex">
         <span className="text text__number">#{props?.number}</span>
       </div>

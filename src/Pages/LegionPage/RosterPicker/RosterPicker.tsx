@@ -1,15 +1,18 @@
-import RosterPlayer from "../RosterPlayer/RosterPlayer";
+import RosterPlayer, { RosterPlayerProps } from "../RosterPlayer/RosterPlayer";
 import "./RosterPicker.css"
-import rosterJson  from "../../../assets/Legion/data/players.json";
+import { useState } from "react";
 
-function RosterPicker() {
+type RosterPickerProps = {
+    pl: RosterPlayerProps[]
+}
 
-    return (
+function RosterPicker(props: RosterPickerProps) {
+    return (   
         <div className="rosterPicker">
             {
-                rosterJson.map((player) => {
+                props.pl.map((player, key) => {
                     return(
-                        <div className="playerInPicker">
+                        <div className="playerInPicker" key={key}>
                             <RosterPlayer {...player}></RosterPlayer>
                         </div>
                 )})

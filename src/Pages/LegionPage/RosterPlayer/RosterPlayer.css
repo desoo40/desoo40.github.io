@@ -14,15 +14,11 @@
     flex-direction: row;
     margin: auto;
     /* border: 1px solid saddlebrown ; */
+    border-radius: 5px;
     text-align: center;
 }
 
-.player.player__inpicker{
-    flex-direction: column;
-}
-
-.player__flex__hidden {
-    display: none;
+.player__flex {
 }
 
 .text {
@@ -31,6 +27,7 @@
 }
 
 .text__number {
+    font-size: 20px;
     text-align: end;
     margin-right: -10px;
 }
@@ -45,9 +42,9 @@
 }
 
 .text__bage {
-    font-size: 20px;
+    font-size: 22px;
     text-align: start;
-    margin-top: 90px;
+    margin-top: 85px;
     margin-left: -10px;
     color: #c80b1c;
 }
