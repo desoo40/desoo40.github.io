@@ -2,7 +2,7 @@ import "./LegionPage.css";
 import RosterPicker from "./RosterPicker/RosterPicker";
 import playersJson from "../../assets/Legion/data/players.json";
 import RosterPlayer, { RosterPlayerProps } from "./RosterPlayer/RosterPlayer";
-import { DragEvent, MouseEvent, useState } from "react";
+import { DragEvent, useState } from "react";
 
 enum Positions {
   goalies,
@@ -30,6 +30,7 @@ function dropHandler(
 
   //avoid doubling
   if (states.index !== -1) {
+    //@ts-ignore
     newRoster[states.index] = null;
     states.setIndex(-1);
   }
@@ -51,21 +52,13 @@ function doubleHandler(states: StateProps, index: number): void {
 
   newPlayers.push(newRoster[index]);
   if (newRoster[index] === null) return;
+  //@ts-ignore
   newRoster[index] = null;
 
   states.setRoster(newRoster);
   states.setPlayers(newPlayers);
 }
-
-function dragOverHandler(e: DragEvent<HTMLDivElement>): void {
-  e.preventDefault();
-}
-
-function dragStartHandler(
-  e: DragEvent<HTMLDivElement>,
-  states: StateProps,
-  index: number
-): void {
+function dragStartHandler(states: StateProps, index: number): void {
   states.setIndex(index);
   states.setCurrPlayer(states.roster[index]);
 }
@@ -89,7 +82,7 @@ function RosterElement(props: { states: StateProps; index: number }) {
       }}
       onDrop={(e) => dropHandler(e, props.states, props.index)}
       onDoubleClick={(_) => doubleHandler(props.states, props.index)}
-      onDragStart={(e) => dragStartHandler(e, props.states, props.index)}
+      onDragStart={(_) => dragStartHandler(props.states, props.index)}
     >
       {player === null ? (
         <div className={shadow}></div>

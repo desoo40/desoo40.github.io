@@ -1,6 +1,5 @@
 import RosterPlayer, { RosterPlayerProps } from "../RosterPlayer/RosterPlayer";
 import "./RosterPicker.css";
-import { DragEvent, useState } from "react";
 
 interface RosterPickerProps {
   pl: RosterPlayerProps[];
@@ -8,10 +7,7 @@ interface RosterPickerProps {
 }
 
 function RosterPicker(props: RosterPickerProps) {
-  function dragStartHandler(
-    e: DragEvent<HTMLDivElement>,
-    player: RosterPlayerProps
-  ): void {
+  function dragStartHandler(player: RosterPlayerProps): void {
     console.log(player);
     props.setCurr(player);
   }
@@ -21,7 +17,7 @@ function RosterPicker(props: RosterPickerProps) {
         return (
           <div
             draggable={true}
-            onDragStart={(e) => dragStartHandler(e, player)}
+            onDragStart={(_) => dragStartHandler(player)}
             className="playerInPicker"
             key={key}
           >
