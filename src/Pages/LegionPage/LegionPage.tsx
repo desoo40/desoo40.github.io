@@ -81,7 +81,10 @@ function RosterElement(props: { states: StateProps; index: number }) {
         setShadow(defShadow);
       }}
       onDrop={(e) => dropHandler(e, props.states, props.index)}
-      onDoubleClick={(_) => doubleHandler(props.states, props.index)}
+      onDoubleClick={(_) => {
+        doubleHandler(props.states, props.index);
+        setShadow(defShadow);
+      }}
       onDragStart={(_) => dragStartHandler(props.states, props.index)}
     >
       {player === null ? (
