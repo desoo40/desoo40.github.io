@@ -12,6 +12,10 @@
   text-align: center;
 }
 
+.players {
+  padding-top: 30px;
+}
+
 .playersLine {
   display: flex;
   margin-top: 35px;

@@ -25,6 +25,10 @@
     box-shadow: inset 0px 0px 10px 10px rgb(0, 0, 0, 0.4), 0px 3px 7px rgb(0, 0, 0, 0.4);
 }
 
+.player__ondragover {
+    box-shadow: inset 0px 0px 10px 10px rgba(14, 208, 114, 0.4), 0px 3px 7px rgb(0, 0, 0, 0.4);
+}
+
 .text {
     display: block;
     font-family: 'CC Ultimate Italic';

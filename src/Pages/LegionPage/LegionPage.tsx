@@ -19,38 +19,82 @@ function getCountByPosition(position: Positions): number {
   }
 }
 
-function RosterElement(props: { fancy: FancyProps; index: number }) {
-  function dropHandler(e: DragEvent<HTMLDivElement>, fancy: FancyProps): void {
-    e.preventDefault();
-    let newRoster = props.fancy.roster.slice();
-    newRoster[props.index] = props.fancy.currPlayer;
-    props.fancy.setRoster(newRoster);
-    console.log(fancy);
+function dropHandler(
+  e: DragEvent<HTMLDivElement>,
+  states: StateProps,
+  index: number
+): void {
+  e.preventDefault();
+
+  const newRoster = states.roster.slice();
+
+  //avoid doubling
+  if (states.index !== -1) {
+    newRoster[states.index] = null;
+    states.setIndex(-1);
   }
 
-  function doubleHandler(fancy: FancyProps): void {
-    let newRoster = props.fancy.roster.slice();
-    newRoster[props.index] = null;
-    props.fancy.setRoster(newRoster);
-    console.log(fancy);
-  }
+  let newPlayers = states.players.slice();
 
-  function dragOverHandler(e: DragEvent<HTMLDivElement>): void {
-    e.preventDefault();
-  }
-  const player = props.fancy.roster[props.index];
+  if (newRoster[index] !== null) newPlayers.push(newRoster[index]);
 
+  newRoster[index] = states.currPlayer;
+  states.setRoster(newRoster);
+
+  newPlayers = newPlayers.filter((el) => el.id !== states.currPlayer.id);
+  states.setPlayers(newPlayers);
+}
+
+function doubleHandler(states: StateProps, index: number): void {
+  const newRoster = states.roster.slice();
+  const newPlayers = states.players.slice();
+
+  newPlayers.push(newRoster[index]);
+  if (newRoster[index] === null) return;
+  newRoster[index] = null;
+
+  states.setRoster(newRoster);
+  states.setPlayers(newPlayers);
+}
+
+function dragOverHandler(e: DragEvent<HTMLDivElement>): void {
+  e.preventDefault();
+}
+
+function dragStartHandler(
+  e: DragEvent<HTMLDivElement>,
+  states: StateProps,
+  index: number
+): void {
+  states.setIndex(index);
+  states.setCurrPlayer(states.roster[index]);
+}
+
+function RosterElement(props: { states: StateProps; index: number }) {
+  const defShadow = "player";
+  const [shadow, setShadow] = useState(defShadow);
+  const player = props.states.roster[props.index];
+  const isNull = player === null;
   return (
     <div
       className="rosterElement"
-      onDragOver={(e) => dragOverHandler(e)}
-      onDrop={(e) => dropHandler(e, props.fancy)}
-      onDoubleClick={(_) => doubleHandler(props.fancy)}
+      draggable={!isNull}
+      onDragOver={(e) => {
+        e.preventDefault();
+        setShadow(defShadow + " player__ondragover");
+      }}
+      onDragLeave={(e) => {
+        e.preventDefault();
+        setShadow(defShadow);
+      }}
+      onDrop={(e) => dropHandler(e, props.states, props.index)}
+      onDoubleClick={(_) => doubleHandler(props.states, props.index)}
+      onDragStart={(e) => dragStartHandler(e, props.states, props.index)}
     >
-      {player == null ? (
-        <div className="player player__stub"></div>
+      {player === null ? (
+        <div className={shadow}></div>
       ) : (
-        <RosterPlayer name={player.name} number={player.number}></RosterPlayer>
+        <RosterPlayer {...player}></RosterPlayer>
       )}
     </div>
   );
@@ -58,7 +102,7 @@ function RosterElement(props: { fancy: FancyProps; index: number }) {
 
 function PlayersChain(props: {
   position: Positions;
-  fancy: FancyProps;
+  states: StateProps;
   index: number;
 }) {
   const count: number = getCountByPosition(props.position);
@@ -71,7 +115,7 @@ function PlayersChain(props: {
       <div className={className}>
         {Array.from(Array(count)).map((_, i) => (
           <RosterElement
-            fancy={props.fancy}
+            states={props.states}
             index={props.index + i}
           ></RosterElement>
         ))}
@@ -80,18 +124,18 @@ function PlayersChain(props: {
   );
 }
 
-function PlayersLine(props: { fancy: FancyProps; index: number }) {
+function PlayersLine(props: { states: StateProps; index: number }) {
   return (
     <>
       <div className="playersLine">
         <PlayersChain
           position={Positions.forwards}
-          fancy={props.fancy}
+          states={props.states}
           index={2 + 5 * props.index}
         ></PlayersChain>
         <PlayersChain
           position={Positions.defenders}
-          fancy={props.fancy}
+          states={props.states}
           index={5 + 5 * props.index}
         ></PlayersChain>
       </div>
@@ -99,27 +143,31 @@ function PlayersLine(props: { fancy: FancyProps; index: number }) {
   );
 }
 
-interface FancyProps {
+interface StateProps {
   roster: RosterPlayerProps[];
   setRoster: React.Dispatch<React.SetStateAction<RosterPlayerProps[]>>;
   currPlayer: RosterPlayerProps;
   setCurrPlayer: React.Dispatch<React.SetStateAction<RosterPlayerProps>>;
   players: RosterPlayerProps[];
-  setPlayers: React.Dispatch<React.SetStateAction<RosterPlayerProps>>;
+  setPlayers: React.Dispatch<React.SetStateAction<RosterPlayerProps[]>>;
+  index: number;
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function Roster(props: FancyProps) {
+function Roster(props: StateProps) {
   return (
     <>
       <PlayersChain
         position={Positions.goalies}
-        fancy={props}
+        states={props}
         index={0}
       ></PlayersChain>
-      <PlayersLine fancy={props} index={0}></PlayersLine>
-      <PlayersLine fancy={props} index={1}></PlayersLine>
-      <PlayersLine fancy={props} index={2}></PlayersLine>
-      <PlayersLine fancy={props} index={3}></PlayersLine>
+
+      <div className="players">
+        {Array.from(Array(4)).map((_, i) => (
+          <PlayersLine states={props} index={i}></PlayersLine>
+        ))}
+      </div>
     </>
   );
 }
@@ -131,6 +179,7 @@ function LegionPage() {
   const [players, setPlayers] = useState(playersStart.slice());
   const [roster, setRoster] = useState(rosterEmpty.slice());
   const [currentPlayer, setCurrentPlayer] = useState(rosterEmpty[0]);
+  const [index, setIndex] = useState(-1);
 
   return (
     <div className="rosterPageLayout">
@@ -142,6 +191,8 @@ function LegionPage() {
           setCurrPlayer={setCurrentPlayer}
           players={players}
           setPlayers={setPlayers}
+          index={index}
+          setIndex={setIndex}
         ></Roster>
       </div>
       <RosterPicker pl={players} setCurr={setCurrentPlayer}></RosterPicker>

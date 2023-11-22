@@ -2,10 +2,10 @@ import RosterPlayer, { RosterPlayerProps } from "../RosterPlayer/RosterPlayer";
 import "./RosterPicker.css";
 import { DragEvent, useState } from "react";
 
-type RosterPickerProps = {
+interface RosterPickerProps {
   pl: RosterPlayerProps[];
   setCurr: React.Dispatch<React.SetStateAction<RosterPlayerProps>>;
-};
+}
 
 function RosterPicker(props: RosterPickerProps) {
   function dragStartHandler(
