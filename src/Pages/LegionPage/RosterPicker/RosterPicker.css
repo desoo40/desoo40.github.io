@@ -1,11 +1,11 @@
 .rosterPicker {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin: 50px auto;
     /* border: 2px solid rebeccapurple; */
-    margin: 0 auto;
-    max-height: 100%;
+    width: auto;
+    max-height: 1000px;
     overflow: scroll;
-    padding-right: 10px;
     box-shadow: inset 0px 3px 7px rgb(0, 0, 0, 0.4);
     border-radius: 10px;
 }

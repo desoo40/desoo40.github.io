@@ -1,32 +1,42 @@
 .rosterPageLayout {
+  text-align: center;
   display: flex;
-  height: 1000px;
 }
 
 .rosterLayout {
+  margin: auto;
   width: 1000px;
   height: 1000px;
+  background-size: cover;
   background-image: url("../../assets/Legion/roster.png");
   text-align: center;
 }
 
-.rostedGrid {
-  display: grid;
-  gap: 5px;
-  row-gap: 40px;
-  grid-template-columns: repeat(5, 1fr);
-  margin-top: 25px;
-  margin-left: 200px;
+.playersLine {
+  display: flex;
+  margin-top: 35px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.rostedGrid div:first-child {
-  /* border: 1px solid saddlebrown; */
-  grid-column: 4 / 5;
+.playersChain {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
 }
 
-.firstRow {
-  border: 3px solid rgb(198, 10, 10);
+.goalies {
+  margin-right: 25px;
+  margin-left: 650px;
+  /* outline: 2px solid rgb(13, 135, 56); */
+}
 
-  width: 100px;
-  height: 100px;
+.forwards {
+  margin-left: 120px;
+  /* outline: 2px dashed darkblue ; */
+}
+
+.defenders {
+  /* outline: 2px dotted rgb(139, 0, 100) ; */
+  margin-right: 25px;
 }

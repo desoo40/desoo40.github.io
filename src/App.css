@@ -5,15 +5,21 @@
 
 * {
     box-sizing: border-box;
-}
-
-body{
     margin: 0;
+    padding: 0;
 }
 
 #root {
-    width: 100vw;
-    font-family: 'Open Sans', 'Arial', sans-serif;;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1920px;
+    border: 1px solid black;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    margin: auto;
+}
+
+body {
 }
 
 .sticky {

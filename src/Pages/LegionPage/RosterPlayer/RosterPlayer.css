@@ -12,13 +12,17 @@
 .player {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    width: 150px;
+    height: 160px;
     margin: auto;
     /* border: 1px solid saddlebrown ; */
     border-radius: 5px;
     text-align: center;
 }
 
-.player__flex {
+.player__stub {
+    box-shadow: inset 0px 0px 10px 10px rgb(0, 0, 0, 0.4), 0px 3px 7px rgb(0, 0, 0, 0.4);
 }
 
 .text {
