@@ -8,7 +8,6 @@ interface RosterPickerProps {
 
 function RosterPicker(props: RosterPickerProps) {
   function dragStartHandler(player: RosterPlayerProps): void {
-    console.log(player);
     props.setCurr(player);
   }
   return (

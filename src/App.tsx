@@ -1,31 +1,28 @@
-import './App.css'
-import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import RacesPage from './Pages/RacesPage/RacesPage';
-import SamplePage from './Pages/SamplePage'
-import NotFoundPage from './Pages/NotFoundPage'
-import dsLogo from './assets/dsLogo.png'
+import "./App.css";
+import { HashRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import RacesPage from "./Pages/RacesPage/RacesPage";
+import SamplePage from "./Pages/SamplePage";
+import NotFoundPage from "./Pages/NotFoundPage";
+import dsLogo from "./assets/dsLogo.png";
 import YandexPracticumPage from "./Pages/YandexPraticumPage/YandexPracticumPage";
 import LegionPage from "./Pages/LegionPage/LegionPage";
 
 function App() {
-  return(
+  return (
     <Router>
       <header className="sticky">
-          <span className="logo">
-            <img src={dsLogo} alt="logo" width="100" height="100" />
-          </span>
-          <NavLink to="/"  className="menuItem">
-            Home
-          </NavLink>
-          <NavLink to="/races" className="menuItem">
-            Races
-          </NavLink>
-           <NavLink to="/practicum" className="menuItem">
-            Yandex
-          </NavLink>
-          <NavLink to="/legion" className="menuItem">
-            Legion
-          </NavLink>
+        <span className="logo">
+          <img src={dsLogo} alt="logo" width="100" height="100" />
+        </span>
+        <NavLink to="/" className="menuItem">
+          Home
+        </NavLink>
+        <NavLink to="/races" className="menuItem">
+          Races
+        </NavLink>
+        <NavLink to="/practicum" className="menuItem">
+          Yandex
+        </NavLink>
       </header>
       <div className="container">
         <Routes>
@@ -37,7 +34,7 @@ function App() {
         </Routes>
       </div>
     </Router>
-   )
+  );
 }
 
-export default App
+export default App;

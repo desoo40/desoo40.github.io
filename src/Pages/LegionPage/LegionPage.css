@@ -1,5 +1,4 @@
 .rosterPageLayout {
-  text-align: center;
   display: flex;
 }
 
@@ -9,11 +8,34 @@
   height: 1000px;
   background-size: cover;
   background-image: url("../../assets/Legion/roster.png");
-  text-align: center;
+  border-radius: 10px;
+    box-shadow: inset 0px 0px 2px rgb(0, 0, 0, 0.4);
 }
 
-.players {
-  padding-top: 30px;
+@keyframes shaking {
+  0% {
+    transform: rotate(0)
+  }
+
+  25% {
+    transform: rotate(2deg)
+  }
+
+  50% {
+    transform: rotate(0)
+  }
+
+  75% {
+    transform: rotate(-2deg)
+  }
+
+  100% {
+    transform: rotate(0)
+  }
+}
+
+.shake {
+  animation: shaking 0.2s;
 }
 
 .playersLine {
@@ -30,8 +52,9 @@
 }
 
 .goalies {
+  margin-top: 25px;
   margin-right: 25px;
-  margin-left: 650px;
+  margin-left: 670px;
   /* outline: 2px solid rgb(13, 135, 56); */
 }
 

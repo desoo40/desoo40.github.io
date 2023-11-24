@@ -58,6 +58,7 @@ function doubleHandler(states: StateProps, index: number): void {
   states.setRoster(newRoster);
   states.setPlayers(newPlayers);
 }
+
 function dragStartHandler(states: StateProps, index: number): void {
   states.setIndex(index);
   states.setCurrPlayer(states.roster[index]);
@@ -68,9 +69,20 @@ function RosterElement(props: { states: StateProps; index: number }) {
   const [shadow, setShadow] = useState(defShadow);
   const player = props.states.roster[props.index];
   const isNull = player === null;
+
+  const [shake, setShake] = useState(false);
+
+  const animate = () => {
+    // Button begins to shake
+    setShake(true);
+
+    // Buttons stops to shake after 2 seconds
+    setTimeout(() => setShake(false), 200git);
+  };
+
   return (
     <div
-      className="rosterElement"
+      className={shake ? "shake" : ""}
       draggable={!isNull}
       onDragOver={(e) => {
         e.preventDefault();
@@ -80,12 +92,14 @@ function RosterElement(props: { states: StateProps; index: number }) {
         e.preventDefault();
         setShadow(defShadow);
       }}
-      onDrop={(e) => dropHandler(e, props.states, props.index)}
-      onDoubleClick={(_) => {
+      onClick={animate}
+      onContextMenu={(e) => {
+        e.preventDefault();
         doubleHandler(props.states, props.index);
         setShadow(defShadow);
       }}
-      onDragStart={(_) => dragStartHandler(props.states, props.index)}
+      onDrop={(e) => dropHandler(e, props.states, props.index)}
+      onDragStart={() => dragStartHandler(props.states, props.index)}
     >
       {player === null ? (
         <div className={shadow}></div>
@@ -110,10 +124,7 @@ function PlayersChain(props: {
     <>
       <div className={className}>
         {Array.from(Array(count)).map((_, i) => (
-          <RosterElement
-            states={props.states}
-            index={props.index + i}
-          ></RosterElement>
+          <RosterElement states={props.states} index={props.index + i} />
         ))}
       </div>
     </>
@@ -128,12 +139,12 @@ function PlayersLine(props: { states: StateProps; index: number }) {
           position={Positions.forwards}
           states={props.states}
           index={2 + 5 * props.index}
-        ></PlayersChain>
+        />
         <PlayersChain
           position={Positions.defenders}
           states={props.states}
           index={5 + 5 * props.index}
-        ></PlayersChain>
+        />
       </div>
     </>
   );
@@ -167,11 +178,10 @@ function Roster(props: StateProps) {
     </>
   );
 }
+const rosterEmpty: RosterPlayerProps[] = new Array(22).fill(null);
+const playersStart: RosterPlayerProps[] = playersJson;
 
 function LegionPage() {
-  const rosterEmpty: RosterPlayerProps[] = new Array(22).fill(null);
-  const playersStart: RosterPlayerProps[] = playersJson;
-
   const [players, setPlayers] = useState(playersStart.slice());
   const [roster, setRoster] = useState(rosterEmpty.slice());
   const [currentPlayer, setCurrentPlayer] = useState(rosterEmpty[0]);

@@ -1,24 +1,37 @@
 .circle {
     height: 108px;
     width: 108px;
-    border: 4px solid #c1c1c1;
+    margin: auto;
     border-radius: 50%;
-    background-image: url("/src/assets/Legion/legionLogo.png");
     background-size: cover;
     box-shadow: inset 0px 3px 7px rgb(0, 0, 0, 0.4), 0px 3px 7px rgb(0, 0, 0, 0.4);
-    margin-bottom: 4px;
 }
 
 .player {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    position: relative;
+    z-index: 0;
     width: 150px;
     height: 160px;
-    margin: auto;
     /* border: 1px solid saddlebrown ; */
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
+
+}
+
+.player:hover {
+    scale: 110%;
+    /* animation: shaking 0.3s; */
+    transition: 0.1s ease-in-out;
+}
+
+.playerInPicker .player {
+    border: 1px solid rgb(0, 0, 0, 0.4);
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    height: auto;
+    box-shadow: 3px 3px 0px 0px rgb(0, 0, 0, 0.3);
 }
 
 .player__stub {
@@ -30,29 +43,45 @@
 }
 
 .text {
+    user-select: none;
+    font-size: 20px;
     display: block;
     font-family: 'CC Ultimate Italic';
 }
 
 .text__number {
-    font-size: 20px;
+    position: absolute;
+    right: 120px;
+    z-index: 12;
+    font-size: 22px;
     text-align: end;
-    margin-right: -10px;
+}
+
+.playerInPicker .text__number {
+    position: static;
+    text-align: center;
+    font-size: 22px;
 }
 
 .text__name {
+    margin-top: 5px;
     color: #000;
 }
 
 .text__surname {
-    margin-top: -2px;
+    margin-top: -4px;
     color: #980214;
 }
 
 .text__bage {
-    font-size: 22px;
-    text-align: start;
-    margin-top: 85px;
-    margin-left: -10px;
-    color: #c80b1c;
+    position: absolute;
+    z-index: 10;
+    top: 85px;
+    left: 115px;
+    font-size: 25px;
+    color: #b7101f;
+}
+
+.playerInPicker .text__bage {
+    display: none;
 }
