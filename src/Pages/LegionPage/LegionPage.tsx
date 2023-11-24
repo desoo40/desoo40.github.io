@@ -77,7 +77,7 @@ function RosterElement(props: { states: StateProps; index: number }) {
     setShake(true);
 
     // Buttons stops to shake after 2 seconds
-    setTimeout(() => setShake(false), 200git);
+    setTimeout(() => setShake(false), 200);
   };
 
   return (
