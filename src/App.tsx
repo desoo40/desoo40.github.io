@@ -1,5 +1,5 @@
 import "./App.css";
-import { HashRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import { HashRouter, Routes, Route, NavLink } from "react-router-dom";
 import RacesPage from "./Pages/RacesPage/RacesPage";
 import SamplePage from "./Pages/SamplePage";
 import NotFoundPage from "./Pages/NotFoundPage";
@@ -9,7 +9,7 @@ import LegionPage from "./Pages/LegionPage/LegionPage";
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <header className="sticky">
         <span className="logo">
           <img src={dsLogo} alt="logo" width="100" height="100" />
@@ -33,7 +33,7 @@ function App() {
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 

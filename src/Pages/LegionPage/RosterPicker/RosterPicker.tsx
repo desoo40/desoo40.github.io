@@ -7,16 +7,13 @@ interface RosterPickerProps {
 }
 
 function RosterPicker(props: RosterPickerProps) {
-  function dragStartHandler(player: RosterPlayerProps): void {
-    props.setCurr(player);
-  }
   return (
     <div className="rosterPicker">
       {props.pl.map((player, key) => {
         return (
           <div
             draggable={true}
-            onDragStart={(_) => dragStartHandler(player)}
+            onDragStart={() => props.setCurr(player)}
             className="playerInPicker"
             key={key}
           >
