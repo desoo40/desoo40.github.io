@@ -9,7 +9,7 @@ interface RosterPickerProps {
 function RosterPicker(props: RosterPickerProps) {
   return (
     <div className="rosterPicker">
-      {props.pl.map((player, key) => {
+      {props.pl.map((player) => {
         return (
           <div
             draggable={true}
