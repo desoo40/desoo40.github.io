@@ -15,7 +15,7 @@ function RosterPicker(props: RosterPickerProps) {
             draggable={true}
             onDragStart={() => props.setCurr(player)}
             className="playerInPicker"
-            key={key}
+            key={player.id}
           >
             <RosterPlayer {...player}></RosterPlayer>
           </div>
